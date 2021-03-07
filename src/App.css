@@ -57,6 +57,10 @@ html {
   font-size: 15px;
   font-weight: lighter;
   line-height: 1.5;
+  text-decoration: none;
+}
+.recent-news-title-link:hover {
+  text-decoration: underline;
 }
 .right-app-container {
   width: 80%;
@@ -74,9 +78,10 @@ html {
   font-family: "Lobster", sans-serif;
   font-size: 50px;
   padding-top: 40px;
+  text-decoration: none;
 }
 .logo-section > a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .nav-header-section {
   width: 65%;
@@ -186,9 +191,11 @@ html {
   font-family: "Lato", sans-serif;
   font-size: 17px;
   font-weight: 600;
+  text-decoration: none;
 }
 .top-story-title-link:hover {
   color: #fff;
+  text-decoration: underline;
 }
 
 .top-story-author {
@@ -287,9 +294,11 @@ html {
   font-family: "Lato", sans-serif;
   font-size: 17px;
   font-weight: 600;
+  text-decoration: none;
 }
 .side-stories-title-link:hover {
   color: #fff;
+  text-decoration: underline;
 }
 .side-stories-author {
   color: #fff;
@@ -386,6 +395,7 @@ html {
     font-size: 50px;
     padding-top: 40px;
     text-align: center;
+    text-decoration: none;
   }
   .logo-section > a:hover {
     text-decoration: none;
