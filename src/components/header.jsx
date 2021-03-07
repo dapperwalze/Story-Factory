@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import NavBar from './navBar';
+import NavBar from "./NavBar";
 
 const Header = (props) => {
-    return (
-        <header className="header">
-            <section className="empty-header-section"></section>
-            <section className="nav-header-section"><NavBar/></section>
-        </header>
-    )
+  const { appName } = props;
+  return (
+    <header className="header">
+      <section className="logo-section">
+        <a href="./">{appName}</a>
+      </section>
 
-}
+      <section className="nav-header-section">
+        <NavBar appName={appName} navUrl={"#"} />
+      </section>
+    </header>
+  );
+};
 
 export default Header;
