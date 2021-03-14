@@ -1,10 +1,10 @@
 const TopStoriesBlock = (props) => {
-  const { url, imageUrl, title, author, timeStamp } = props;
+  const { url, imageUrl, title, author, timeStamp, target } = props;
   return (
     <div className="top-story" style={{ backgroundImage: `url(${imageUrl})` }}>
       <div className="top-story-details">
         <h2 className="top-story-title">
-          <a className="top-story-title-link" href={url}>
+          <a className="top-story-title-link" target={target} href={url}>
             {title}
           </a>
 
