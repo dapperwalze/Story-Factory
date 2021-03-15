@@ -3,12 +3,14 @@ import axios from "axios";
 import moment from "moment";
 import OtherStoriesSection from "./OtherStoriesSection";
 import TopStoriesBlock from "./TopStoriesBlock";
+import Skeleton from "react-loading-skeleton";
 
 class MainSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stories: [],
+      isLoading: true,
     };
   }
 
@@ -20,8 +22,9 @@ class MainSection extends Component {
       .then((res) => {
         const stories = res.data.articles;
 
-        this.setState({ stories });
-      });
+        this.setState({ stories, isLoading: false });
+      })
+      .catch(() => console.log());
   }
 
   render() {
@@ -32,25 +35,49 @@ class MainSection extends Component {
         </h2>
         <div className="main-container">
           <main className="main">
-            <div className="top-stories-container">
-              {this.state.stories.map((story, index) => (
-                <TopStoriesBlock
-                  key={index}
-                  title={story.title}
-                  author={story.author}
-                  url={story.url}
-                  imageUrl={story.urlToImage}
-                  timeStamp={moment(story.publishedAt)
-                    .startOf("hour")
-                    .fromNow()}
-                  target="_blank"
-                />
-              ))}
-            </div>
+            {this.state.isLoading ? (
+              <>
+                <Skeleton height={"350px"} />
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gridGap: "20px",
+                    width: "100%",
+                    marginTop: "20px",
+                  }}
+                >
+                  <Skeleton height={"200px"} width="100%" />
+                  <Skeleton height={"200px"} width="100%" />
+                  <Skeleton height={"200px"} width="100%" />
+                  <Skeleton height={"200px"} width="100%" />
+                </div>
+              </>
+            ) : (
+              <div className="top-stories-container">
+                {this.state.stories.map((story, index) => (
+                  <TopStoriesBlock
+                    key={index}
+                    title={story.title}
+                    author={story.author}
+                    url={story.url}
+                    imageUrl={story.urlToImage}
+                    timeStamp={moment(story.publishedAt)
+                      .startOf("hour")
+                      .fromNow()}
+                    target="_blank"
+                  />
+                ))}
+              </div>
+            )}
           </main>
           <aside className="aside">
             <div className="side-stories-container">
-              <OtherStoriesSection target="_blank" />
+              {this.state.isLoading ? (
+                <Skeleton height="200px" width="400px" count="4" />
+              ) : (
+                <OtherStoriesSection target="_blank" />
+              )}
             </div>
           </aside>
         </div>
