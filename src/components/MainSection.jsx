@@ -74,7 +74,7 @@ class MainSection extends Component {
           <aside className="aside">
             <div className="side-stories-container">
               {this.state.isLoading ? (
-                <Skeleton height="200px" width="400px" count="4" />
+                <Skeleton height="200px" width="370px" count="4" />
               ) : (
                 <OtherStoriesSection target="_blank" />
               )}
