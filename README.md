@@ -1,3 +1,14 @@
+# Story Factory
+
+A news app built to keep people updated with recent events around the world.  \
+
+## Tips On How TO View This Project
+
+Clone the repo \
+Run npm install \
+Run npm start \
+Visit localhost://3000 to view the application.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
