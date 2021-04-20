@@ -17,7 +17,7 @@ class MainSection extends Component {
   componentDidMount() {
     axios
       .get(
-        ` https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=5ac19ebba5ab4b77a8bcc990ed0d4b23`
+        `  https://gnews.io/api/v4/top-headlines?&lang=en&topic=world&token=712316a9fcad1ad4f5cea3a70c5d1d37`
       )
       .then((res) => {
         const stories = res.data.articles;
@@ -59,9 +59,9 @@ class MainSection extends Component {
                   <TopStoriesBlock
                     key={index}
                     title={story.title}
-                    author={story.author}
+                    author={story.source.name}
                     url={story.url}
-                    imageUrl={story.urlToImage}
+                    imageUrl={story.image}
                     timeStamp={moment(story.publishedAt)
                       .startOf("hour")
                       .fromNow()}

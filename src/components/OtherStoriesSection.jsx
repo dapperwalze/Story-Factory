@@ -13,7 +13,7 @@ class OtherStoriesSection extends Component {
   componentDidMount() {
     axios
       .get(
-        ` https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=5ac19ebba5ab4b77a8bcc990ed0d4b23`
+        ` https://gnews.io/api/v4/top-headlines?&lang=en&topic=science&token=712316a9fcad1ad4f5cea3a70c5d1d37`
       )
       .then((res) => {
         const stories = res.data.articles;
@@ -27,7 +27,7 @@ class OtherStoriesSection extends Component {
       <div
         key={index}
         className="side-stories"
-        style={{ backgroundImage: `url(${story.urlToImage})` }}
+        style={{ backgroundImage: `url(${story.image})` }}
       >
         <div className="side-stories-details">
           <h2 className="side-stories-title">
@@ -38,7 +38,7 @@ class OtherStoriesSection extends Component {
             >
               {story.title}
             </a>
-            <span className="side-stories-author"> - {story.author}</span>
+            <span className="side-stories-author"> - {story.source.name}</span>
           </h2>
           <p className="side-stories-time">
             {moment(story.publishedAt).startOf("hour").fromNow()}

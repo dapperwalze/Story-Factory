@@ -15,10 +15,11 @@ class DisplayRecentNews extends Component {
   componentDidMount() {
     axios
       .get(
-        ` https://newsapi.org/v2/top-headlines?country=us&pageSize=11&apiKey=5ac19ebba5ab4b77a8bcc990ed0d4b23`
+        `https://gnews.io/api/v4/top-headlines?&lang=en&token=712316a9fcad1ad4f5cea3a70c5d1d37`
       )
       .then((res) => {
         const stories = res.data.articles;
+        console.log(stories);
 
         this.setState({ stories, isLoading: false });
       })
